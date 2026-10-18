@@ -1,3 +1,5 @@
+本项目基于开源项目 CourseRaptor (MIT License) 二次开发，针对大学生日常生活陪伴场景进行了深度扩展。
+
 <div align="center">
 
 <img src="docs/courseraptor-logo.png" width="160" alt="CourseRaptor logo" />
