@@ -1,0 +1,58 @@
+node_modules/
+.env
+dist/
+downloads/
+memory.json
+session.json
+qq-allowlist.json
+qq-bridge.log
+*.log
+eng.traineddata
+# 锚定到仓库根：应用运行数据目录；不锚定的 data/ 会误吞嵌套同名源码目录
+# （如嵌套的 src/**/data/ 同名目录）
+/data/
+.workbuddy/
+credentials.enc
+# 上游 skills 合集（体积大、仅本地参考，不入库不打包）
+skills/upstream-*/
+.spec-workflow/
+.tmp-banner/
+# 根目录临时脚本/状态（会话工作产物，含 .tmp-banner/ 一类前缀）
+.tmp-*
+.openai/
+.zcode/
+.zhanlu/
+# 本地临时产物（Playwright MCP 抓取、UI 截图、架构图草稿、大厅主图快照）
+.playwright-mcp/
+outputs/
+hall-main.png
+# 同学端 UI 评审截图（根目录快照，含会话界面，不入库）
+/desk-*.png
+/mob-*.png
+/shot-*.png
+# QMuse CLI 导入后生成的应用绑定文件（本机专属，不入库）
+.qmuse/
+# 本地语义评审临时产物，不入库
+semantic-review/
+
+# ── Obsidian 插件（obsidian/ 自带 npm 工程，产物不入库）──────────────
+# main.js 由 obsidian 的 npm run build 产出；data.json 是插件装进库后
+# Obsidian 写的本地设置；node_modules 已被上面的全局规则覆盖
+/obsidian/main.js
+/obsidian/data.json
+/obsidian/.tmp-*
+
+# ── 本地私有插件（可选学校数据接入，不进公开仓库）──────────────────
+# 装配点 src/adapters/index.ts 启动时扫描 src/adapters/ 自动发现并登记；
+# 缺插件时只登记内置 custom，编译与测试照常通过。约定见 src/adapters/README.md。
+# 新增私有插件时在此补一行 /src/adapters/<id>/，并同步补其专属单测。
+
+# jscpd 复制粘贴检测的本地报告
+.jscpd-report/
+
+# ── 桌面版（desktop/ 独立 npm 工程，产物不入库）────────────────────
+# dist/ 由 desktop 的 npm run build 产出；release/ 是 electron-builder 的
+# 安装包输出；build-resources/ 由 scripts/package-desktop.mjs 临时填充再清掉
+/desktop/dist/
+/desktop/release/
+/desktop/build-resources/

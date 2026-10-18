@@ -1,0 +1,97 @@
+{
+  "name": "courseraptor",
+  "version": "0.6.2",
+  "description": "大学校园对话式 Agent：导入课表即可开聊——课表 · 待办 · 知识库 · 记忆一句话问清，数据全留在本机",
+  "scripts": {
+    "dev": "tsx local/cli/index.ts",
+    "start": "tsx local/cli/index.ts",
+    "demo": "tsx local/demo/entry.ts",
+    "demo:live": "tsx local/demo/entry.ts --live",
+    "njtech": "tsx skills/njtech-jwgl/scripts/query.ts",
+    "doctor": "node scripts/doctor.mjs",
+    "preview:readme": "node scripts/preview-readme.mjs",
+    "qq": "tsx local/qq/bridge.ts",
+    "desktop:backend": "tsx local/host/headless.ts",
+    "desktop:dev": "npm --prefix desktop run dev",
+    "desktop:build": "npm --prefix desktop run build",
+    "desktop:dist": "node scripts/package-desktop.mjs",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run lint && npm run verify:imports",
+    "build:skill-library": "node --import tsx scripts/build-skill-library.ts",
+    "lint": "biome check --error-on-warnings",
+    "lint:fix": "biome check --write",
+    "format": "biome format --write",
+    "format:check": "biome format",
+    "postinstall": "node scripts/patch-tui.mjs && node scripts/install-hooks.mjs",
+    "duplication": "jscpd",
+    "verify:imports": "node scripts/verify-imports.mjs",
+    "sync:library": "python3 scripts/sync-library.py",
+    "sync:library:dry": "python3 scripts/sync-library.py --dry-run",
+    "page:today": "node --import tsx scripts/build-today-page.mts",
+    "release": "node scripts/release.mjs",
+    "package:skill": "node scripts/package-skill.mjs",
+    "obsidian:build": "npm --prefix obsidian run build",
+    "obsidian:dev": "npm --prefix obsidian run dev",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:coverage": "node --import tsx --test --experimental-test-coverage --test-coverage-lines=80 --test-coverage-branches=78 --test-coverage-functions=75 tests/*.test.ts",
+    "audit:prod": "npm audit --omit=dev --audit-level=critical"
+  },
+  "bin": {
+    "raptor": "bin/raptor.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Health-525/courseraptor.git"
+  },
+  "homepage": "https://github.com/Health-525/courseraptor#readme",
+  "bugs": {
+    "url": "https://github.com/Health-525/courseraptor/issues"
+  },
+  "keywords": [
+    "njtech",
+    "agent",
+    "cli",
+    "deepseek",
+    "教务"
+  ],
+  "author": "jiangshu",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "@ai-sdk/deepseek": "^3.0.63",
+    "@ai-sdk/openai-compatible": "^3.0.67",
+    "@ai-sdk/tui": "^1.0.137",
+    "@resvg/resvg-js": "^2.6.2",
+    "@tencent-connect/qqbot-nodejs": "^1.0.4",
+    "ai": "^7.0.83",
+    "docx": "^9.9.0",
+    "fontkit": "^2.0.4",
+    "jszip": "^3.10.2",
+    "mammoth": "^1.13.0",
+    "marked": "^18.1.0",
+    "mathml2omml": "^0.5.0",
+    "pdf-parse": "^2.4.5",
+    "pdfkit": "^0.20.2",
+    "pptxgenjs": "^4.0.1",
+    "qrcode": "^1.5.4",
+    "svg-arc-to-cubic-bezier": "^3.2.0",
+    "svg-pathdata": "^8.0.0",
+    "temml": "^0.14.0",
+    "tsx": "^4.23.15",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
+    "zod": "^4.6.5"
+  },
+  "overrides": {
+    "image-size": "^2.0.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@types/node": "^26.6.4",
+    "jscpd": "^5.4.1",
+    "lefthook": "^2.2.1",
+    "typescript": "^7.0.2"
+  }
+}
