@@ -1,4 +1,6 @@
-本项目基于开源项目 CourseRaptor (MIT License) 二次开发，针对大学生日常生活陪伴场景进行了深度扩展。
+致谢与声明：本项目基于开源项目 CourseRaptor (MIT License) 二次开发，针对大学生日常生活陪伴场景进行了深度扩展与重构。
+
+
 
 <div align="center">
 
